@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::prefix('trip')->group(function(){
     Route::get('{trip_id}',[TripController::class,'view'])->name('trip.view');
+    Route::get('{trip_id}/seats/available',[TripController::class,'viewTripAvailableSeats'])->name('trip.view.seats.available');
+    
 });

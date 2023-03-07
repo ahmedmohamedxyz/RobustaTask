@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
+use App\Http\Requests\ViewTripRequest;
+use App\Models\Trip;
 
 class TripController extends Controller
 {
-    public function view(Request $request,$trip_id)
+    public function view(ViewTripRequest $request,$tripId)
     {
-
+        $trip = Trip::with(['reservations','stations'])->findOrFail($tripId);
     }
+
+    public function viewTripAvailableSeats(ViewTripRequest $request,$tripId)
+    {
+        $trip = Trip::with('reservations')->findOrFail($tripId);
+        
+    }
+
+
 }
