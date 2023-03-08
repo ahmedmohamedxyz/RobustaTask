@@ -17,24 +17,24 @@ class TripService
 
         $seats = $trip->bus->seats;
         $reservations = $trip->reservations;
-
-        foreach ($reservations as $reservation) {
+        $seatsReservations = $reservations->groupBy('seat_id')->toArray();
+        foreach ($seatsReservations  as $key=>$seatsReservationItems) {
             $tripPathes = $allTripPathes;
-            $reservationPathes = $this->getPathsBetweenStations($trip, $reservation->from, $reservation->to);
+            $reservationPathes=[];
+            foreach ($seatsReservationItems as $seatsReservationItem) {
+                array_push($reservationPathes,$this->getPathsBetweenStations($trip, $seatsReservationItem['from'], $seatsReservationItem['to']));
+            }
 
+            
             foreach ($tripPathes as $tripPathKey => $tripPath) {
                 foreach ($reservationPathes as $reservationPath) {
-                    if (strpos($tripPath, $reservationPath) !== false) {
+
+                    if (strpos($tripPath, $reservationPath[0]) !== false) {
                         unset($tripPathes[$tripPathKey]);
                     }
                 }
             }
-            // $requestedPath=$this->getRequestedPath($trip,$filters->get('from'),$filters->get('to'));
-            // foreach($tripPathes as $tripPath){
-            //     if(strpos($tripPath,$requestedPath) !== false){
-            //         $availableSeats[]= $reservation->seat_id;
-            //     }
-            // }
+            // dd($tripPathes,$reservationPathes);
         }
 
         foreach ($seats as $seat) {
@@ -63,15 +63,16 @@ class TripService
             }
         }
 
+        $filteredPathes=[];
         foreach ($paths as $key => $path) {
             if (count($path) <= 1) {
                 unset($paths[$key]);
             } else {
-                $paths[$key] = strrev(implode('', $paths[$key]));
+                $filteredPathes[] = strrev(implode('', $paths[$key]));
             }
         }
 
-        return $paths;
+        return $filteredPathes;
     }
 
     private function getPathsBetweenStations(Trip $trip, int $from, int $to): array
@@ -95,15 +96,16 @@ class TripService
             }
         }
 
+        $filteredPathes=[];
         foreach ($paths as $key => $path) {
             if (count($path) <= 1) {
                 unset($paths[$key]);
             } else {
-                $paths[$key] = strrev(implode('', $paths[$key]));
+                $filteredPathes[] = strrev(implode('', $paths[$key]));
             }
         }
 
-        return $paths;
+        return $filteredPathes;
     }
 
     public function checkIfSeatEmptyOnTrip(Trip $trip, int $from, int $to, Seat $seat)
@@ -116,21 +118,5 @@ class TripService
         } else {
             // TODO handle the case the $from & $to is inbetween stations
         }
-    }
-
-    private function getRequestedPath(Trip $trip, int $from, int $to): string
-    {
-        $stations = $trip->stations->pluck('id')->toArray();
-        $firstStationIndex = array_search($from, $stations);
-        $lastStationIndex = array_search($to, $stations);
-        $sationsRange = [];
-
-        foreach ($stations as $key => $station) {
-            if ($key >= $firstStationIndex && $key <= $lastStationIndex) {
-                $sationsRange[] = $station;
-            }
-        }
-
-        return implode('', $sationsRange);
     }
 }
