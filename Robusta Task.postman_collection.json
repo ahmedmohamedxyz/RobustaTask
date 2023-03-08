@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "35dbeb4d-9542-4fd7-ba97-ec34b34c74a4",
+		"name": "Robusta Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4990882"
+	},
+	"item": [
+		{
+			"name": "Reserve Trip",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/api/trip/1/reserve?from=4&to=5&seat_id=1a30d3a6-92f1-4399-b896-f41d76b3f59b",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"trip",
+						"1",
+						"reserve"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "4"
+						},
+						{
+							"key": "to",
+							"value": "5"
+						},
+						{
+							"key": "seat_id",
+							"value": "1a30d3a6-92f1-4399-b896-f41d76b3f59b"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reserve Trip Available",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/trip/1/reserve?from=4&to=5&seat_id=1a30d3a6-92f1-4399-b896-f41d76b3f59b",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"trip",
+								"1",
+								"reserve"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "4"
+								},
+								{
+									"key": "to",
+									"value": "5"
+								},
+								{
+									"key": "seat_id",
+									"value": "1a30d3a6-92f1-4399-b896-f41d76b3f59b"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 12:16:12 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 12:16:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"seat is reserved successfully\"\n}"
+				},
+				{
+					"name": "Reserve Trip Not Available",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/trip/1/reserve?from=4&to=5&seat_id=1a30d3a6-92f1-4399-b896-f41d76b3f59b",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"trip",
+								"1",
+								"reserve"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "4"
+								},
+								{
+									"key": "to",
+									"value": "5"
+								},
+								{
+									"key": "seat_id",
+									"value": "1a30d3a6-92f1-4399-b896-f41d76b3f59b"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 12:19:13 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 12:19:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"seat is not available\"\n}"
+				}
+			]
+		},
+		{
+			"name": "View Trip Available Seats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/api/trip/1/seats/available?from=3&to=5",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"trip",
+						"1",
+						"seats",
+						"available"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "3"
+						},
+						{
+							"key": "to",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
