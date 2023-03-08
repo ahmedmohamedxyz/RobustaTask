@@ -18,4 +18,19 @@ class Trip extends Model
     {
         return $this->belongsToMany(Station::class);
     }
+
+    public function bus()
+    {
+        return $this->belongsTo(Bus::class);
+    }
+
+    public function firstStation()
+    {
+        return $this->belongsToMany(Station::class)->first();
+    }
+
+    public function lastStation()
+    {
+        return $this->belongsToMany(Station::class)->orderBy('id', 'desc')->first();
+    }
 }

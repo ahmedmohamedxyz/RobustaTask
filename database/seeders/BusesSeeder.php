@@ -16,22 +16,22 @@ class BusesSeeder extends Seeder
     public function run(): void
     {
         $bus = Bus::create([
-            'number'=>'amd123',
+            'number' => 'amd123',
         ]);
 
         Seat::insert([
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()],
-            ['id'=>(string)Str::uuid(),'bus_id'=>$bus->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => (string) Str::uuid(), 'bus_id' => $bus->id, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);
     }
 }

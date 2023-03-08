@@ -17,14 +17,14 @@ class TripsSeeder extends Seeder
         $bus = Bus::find(1);
 
         Trip::create([
-            'bus_id'=>$bus->id,
+            'bus_id' => $bus->id,
         ]);
 
         DB::table('station_trip')->insert([
-            ['trip_id'=>1,'station_id'=>1],
-            ['trip_id'=>1,'station_id'=>3],
-            ['trip_id'=>1,'station_id'=>4],
-            ['trip_id'=>1,'station_id'=>5],
+            ['trip_id' => 1, 'station_id' => 1],
+            ['trip_id' => 1, 'station_id' => 3],
+            ['trip_id' => 1, 'station_id' => 4],
+            ['trip_id' => 1, 'station_id' => 5],
         ]);
     }
 }

@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Seat extends Model
 {
     use HasFactory,HasUuids;
-    protected $fillable =[
-        'bus_id'
+
+    protected $fillable = [
+        'bus_id',
     ];
 }

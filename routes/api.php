@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\TripController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('trip')->group(function(){
-    Route::get('{trip_id}',[TripController::class,'view'])->name('trip.view');
-    Route::get('{trip_id}/seats/available',[TripController::class,'viewTripAvailableSeats'])->name('trip.view.seats.available');
-    
+Route::prefix('trip')->group(function () {
+    Route::get('{trip_id}/reserve', [TripController::class, 'reserve'])->name('trip.reserve');
+    Route::get('{trip_id}/seats/available', [TripController::class, 'viewTripAvailableSeats'])->name('trip.view.seats.available');
 });

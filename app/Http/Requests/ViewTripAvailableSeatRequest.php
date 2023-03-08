@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ViewTripRequest extends FormRequest
+class ViewTripAvailableSeatRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,12 +16,12 @@ class ViewTripRequest extends FormRequest
 
     public function all($keys = null)
     {
-        
         $request = parent::all($keys);
-        $request['tripId'] =  $this->route('trip_id');
+        $request['tripId'] = $this->route('trip_id');
 
-        return $request;    
+        return $request;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,7 +30,9 @@ class ViewTripRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tripId'=>'required|exists:trips,id'
+            'tripId' => 'required|exists:trips,id',
+            'from' => ['required', 'exists:stations,id'],
+            'to' => ['required', 'exists:stations,id'],
         ];
     }
 }

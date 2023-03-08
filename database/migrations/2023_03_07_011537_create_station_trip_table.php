@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignIdFor(Trip::class)->constrained();
             $table->foreignIdFor(Station::class)->constrained();
         });
-        
     }
 
     /**

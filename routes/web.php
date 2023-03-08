@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 // Route::prefix('trip')->group(function(){
-    Route::get('trip/{trip_id}',[TripController::class,'view'])->name('trip.view');
+Route::get('trip/{trip_id}', [TripController::class, 'view'])->name('trip.view');
 // });

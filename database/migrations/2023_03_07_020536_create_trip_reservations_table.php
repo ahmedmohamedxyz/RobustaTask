@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Seat;
-use App\Models\Station;
 use App\Models\Trip;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
